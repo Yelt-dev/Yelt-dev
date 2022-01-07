@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @Yelt-dev
 - 👀 I’m interested in technology and computers
-- 🌱 I’m currently learning ReactJS/Redux
+- 🌱 I’m currently learning Rust and Go
 - 📫 How to reach me yeltsin.lopez94@gmail.com
 
 <!---
