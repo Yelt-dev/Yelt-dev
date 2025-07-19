@@ -1,4 +1,4 @@
-# Hi, I'm Yelt-Dev 👋
+# Hi, I'm Yeltsin 👋
 
 I'm a passionate **Full Stack Developer** experienced in building **scalable web** and **mobile applications** using modern technologies. 🚀
 
