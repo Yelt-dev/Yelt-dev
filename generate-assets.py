@@ -49,7 +49,7 @@ def lines(x, y, rows, size, fill, lh, **kw):
     return "".join(text(x, y + i * lh, r, size, fill, **kw) for i, r in enumerate(rows))
 
 
-def card(x, y, w, h, t, r=12):
+def card(x, y, w, h, t, r=6):
     return f'<rect x="{x+.5}" y="{y+.5}" width="{w-1}" height="{h-1}" rx="{r}" fill="{t["surface"]}" stroke="{t["border"]}"/>'
 
 
@@ -75,12 +75,12 @@ def icon(name, x, y, size, theme):
         raw = (ICONS / f"si-{name}.svg").read_text()
         path = re.search(r'<path d="([^"]+)"', raw).group(1)
         col = SIMPLE[name][0 if theme == "dark" else 1]
-        inner = (f'<rect width="256" height="256" rx="60" fill="{TILE[theme]}"/>'
+        inner = (f'<rect width="256" height="256" rx="40" fill="{TILE[theme]}"/>'
                  f'<g transform="translate(56 56) scale(6)"><path d="{path}" fill="{col}"/></g>')
     else:
         raw = (ICONS / f"{name}-{'Dark' if theme == 'dark' else 'Light'}.svg").read_text()
         inner = re.sub(r"^<svg[^>]*>|</svg>\s*$", "", raw.strip())
-        inner = inner.replace('fill="#242938"', f'fill="{TILE[theme]}"').replace('fill="#F4F2ED"', f'fill="{TILE[theme]}"')
+        inner = inner.replace('fill="#242938"', f'fill="{TILE[theme]}"').replace('fill="#F4F2ED"', f'fill="{TILE[theme]}"').replace('rx="60"', 'rx="40"')
         ids = re.findall(r'id="([^"]+)"', inner)
         for i in ids:
             inner = inner.replace(f'id="{i}"', f'id="{pre}{i}"').replace(f"url(#{i})", f"url(#{pre}{i})") \
@@ -107,7 +107,7 @@ def hero(t, theme):
             f'<linearGradient id="role" x1="0" x2="1" spreadMethod="reflect"><stop offset="0" stop-color="{t["violet"]}"/>'
             f'<stop offset=".5" stop-color="{t["pink"]}"/><stop offset="1" stop-color="{t["orange"]}"/>'
             f'<animateTransform attributeName="gradientTransform" type="translate" values="0 0;1 0;0 0" dur="8s" repeatCount="indefinite"/></linearGradient>'
-            f'<clipPath id="clip"><rect width="{W}" height="{h}" rx="12"/></clipPath>')
+            f'<clipPath id="clip"><rect width="{W}" height="{h}" rx="6"/></clipPath>')
     css = ("@keyframes a{0%,100%{transform:translate(0,0)}50%{transform:translate(40px,-25px)}}"
            "@keyframes b{0%,100%{transform:translate(0,0)}50%{transform:translate(-50px,30px)}}"
            "@keyframes c{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,35px)}}"
@@ -119,7 +119,7 @@ def hero(t, theme):
     b += f'<circle class="b1" cx="180" cy="80" r="150" fill="{t["violet"]}"/>'
     b += f'<circle class="b2" cx="520" cy="360" r="140" fill="{t["pink"]}"/>'
     b += f'<circle class="b3" cx="800" cy="60" r="130" fill="{t["orange"]}"/></g>'
-    b += f'<rect x=".5" y=".5" width="{W-1}" height="{h-1}" rx="12" stroke="{t["border"]}"/></g>'
+    b += f'<rect x=".5" y=".5" width="{W-1}" height="{h-1}" rx="6" stroke="{t["border"]}"/></g>'
     # estado
     b += f'<rect x="44" y="44" width="226" height="30" rx="15" fill="{t["surface"]}" fill-opacity=".8" stroke="{t["border"]}"/>'
     b += f'<circle class="pl" cx="62" cy="59" r="4" fill="{t["green"]}"/><circle cx="62" cy="59" r="4" fill="{t["green"]}"/>'
@@ -134,8 +134,8 @@ def hero(t, theme):
         b += text(x, 358, lab, 12.5, t["faint"])
     # ventana de código
     wx, wy, ww, wh = 492, 66, 350, 262
-    b += f'<rect x="{wx+.5}" y="{wy+.5}" width="{ww-1}" height="{wh-1}" rx="12" fill="{t["code_bg"]}" stroke="{t["code_border"]}"/>'
-    b += f'<path d="M{wx+.5} {wy+42}V{wy+12}a11.5 11.5 0 0 1 11.5-11.5h{ww-24}a11.5 11.5 0 0 1 11.5 11.5V{wy+42}z" fill="{t["code_bar"]}"/>'
+    b += f'<rect x="{wx+.5}" y="{wy+.5}" width="{ww-1}" height="{wh-1}" rx="6" fill="{t["code_bg"]}" stroke="{t["code_border"]}"/>'
+    b += f'<path d="M{wx+.5} {wy+42}V{wy+6}a5.5 5.5 0 0 1 5.5-5.5h{ww-12}a5.5 5.5 0 0 1 5.5 5.5V{wy+42}z" fill="{t["code_bar"]}"/>'
     for i, c in enumerate(["#FF5F57", "#FEBC2E", "#28C840"]):
         b += f'<circle cx="{wx+22+i*18}" cy="{wy+22}" r="5.5" fill="{c}"/>'
     b += text(wx + ww / 2, wy + 26, "~/products — zsh", 11.5, t["muted"], cls="m", anchor="middle")
@@ -210,8 +210,8 @@ def principles(t, theme):
         defs += (f'<radialGradient id="pg{i}" cx="1" cy="0" r="1"><stop offset="0" stop-color="{t[col]}" stop-opacity="{t["wash"]}"/>'
                  f'<stop offset="1" stop-color="{t[col]}" stop-opacity="0"/></radialGradient>')
         b += card(x, y, cw, ch, t)
-        b += f'<rect x="{x+1}" y="{y+1}" width="{cw-2}" height="{ch-2}" rx="11" fill="url(#pg{i})"/>'
-        b += f'<rect x="{x+22}" y="{y+22}" width="44" height="44" rx="12" fill="{t[col]}" fill-opacity="{t["tint"]}"/>'
+        b += f'<rect x="{x+1}" y="{y+1}" width="{cw-2}" height="{ch-2}" rx="5" fill="url(#pg{i})"/>'
+        b += f'<rect x="{x+22}" y="{y+22}" width="44" height="44" rx="6" fill="{t[col]}" fill-opacity="{t["tint"]}"/>'
         b += glyph(gl, x + 44, y + 44, t[col])
         b += text(x + 84, y + 42, title, 16.5, t["ink"], weight=700, extra='letter-spacing="-0.2"')
         b += lines(x + 84, y + 66, body, 13.5, t["muted"], 20)
@@ -228,7 +228,7 @@ def dueo(t, theme):
     defs = (f'<linearGradient id="dg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{t["violet"]}" stop-opacity=".13"/>'
             f'<stop offset="1" stop-color="{t["violet"]}" stop-opacity="0"/></linearGradient>')
     css = "@keyframes fill{from{stroke-dashoffset:var(--c)}}"
-    b = card(0, 0, w, h, t, r=12) + f'<rect x="1" y="1" width="{w-2}" height="{h-2}" rx="11" fill="url(#dg)"/>'
+    b = card(0, 0, w, h, t, r=6) + f'<rect x="1" y="1" width="{w-2}" height="{h-2}" rx="5" fill="url(#dg)"/>'
     b += text(26, 44, "Dueo", 24, t["ink"], weight=800, extra='letter-spacing="-0.6"')
     b += f'<rect x="{w-104}" y="26" width="80" height="24" rx="12" fill="{t["violet"]}" fill-opacity=".16"/>'
     b += text(w - 64, 42, "Rust · Svelte", 11, t["violet"], weight=600, anchor="middle")
@@ -255,7 +255,7 @@ def lscrib(t, theme):
             f'<stop offset="1" stop-color="{t["green"]}" stop-opacity="0"/></linearGradient>')
     css = ("@keyframes wave{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}"
            ".bar{transform-box:fill-box;transform-origin:center;animation:wave 1.4s ease-in-out infinite}")
-    b = card(0, 0, w, h, t, r=12) + f'<rect x="1" y="1" width="{w-2}" height="{h-2}" rx="11" fill="url(#lg)"/>'
+    b = card(0, 0, w, h, t, r=6) + f'<rect x="1" y="1" width="{w-2}" height="{h-2}" rx="5" fill="url(#lg)"/>'
     b += text(26, 44, "lscrib", 24, t["ink"], weight=800, extra='letter-spacing="-0.6"')
     b += f'<rect x="{w-112}" y="26" width="88" height="24" rx="12" fill="{t["green"]}" fill-opacity=".16"/>'
     b += text(w - 68, 42, "Python · AI", 11, t["green"], weight=600, anchor="middle")
@@ -278,7 +278,7 @@ def markedit(t, theme):
     h = 112
     defs = (f'<linearGradient id="mg" x1="0" x2="1"><stop offset="0" stop-color="{t["orange"]}" stop-opacity=".10"/>'
             f'<stop offset=".6" stop-color="{t["orange"]}" stop-opacity="0"/></linearGradient>')
-    b = card(0, 0, W, h, t, r=12) + f'<rect x="1" y="1" width="{W-2}" height="{h-2}" rx="11" fill="url(#mg)"/>'
+    b = card(0, 0, W, h, t, r=6) + f'<rect x="1" y="1" width="{W-2}" height="{h-2}" rx="5" fill="url(#mg)"/>'
     b += icon("Swift", 26, 30, 52, theme)
     b += text(98, 48, "MarkEdit Plus", 20, t["ink"], weight=800, extra='letter-spacing="-0.4"')
     b += f'<rect x="246" y="32" width="98" height="22" rx="11" fill="{t["orange"]}" fill-opacity="{t["tint"]}"/>'
@@ -371,8 +371,8 @@ def button(kind, t, theme):
                      "email": ("pink", "Email", "yeltsin.lopez94@gmail.com")}[kind]
     defs = (f'<linearGradient id="bg" x1="0" x2="1"><stop offset="0" stop-color="{t[col]}" stop-opacity=".10"/>'
             f'<stop offset="1" stop-color="{t[col]}" stop-opacity="0"/></linearGradient>')
-    b = card(0, 0, w, h, t, r=12) + f'<rect x="1" y="1" width="{w-2}" height="{h-2}" rx="11" fill="url(#bg)"/>'
-    b += f'<rect x="14" y="14" width="36" height="36" rx="10" fill="{t[col]}"/>'
+    b = card(0, 0, w, h, t, r=6) + f'<rect x="1" y="1" width="{w-2}" height="{h-2}" rx="5" fill="url(#bg)"/>'
+    b += f'<rect x="14" y="14" width="36" height="36" rx="6" fill="{t[col]}"/>'
     if kind == "linkedin":
         b += text(32, 38.5, "in", 17, "#fff", weight=800, anchor="middle")
     else:
