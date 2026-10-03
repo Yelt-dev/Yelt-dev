@@ -6,7 +6,7 @@
 
 <br>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="./assets/principles-dark.svg"><img alt="Principles: make invalid states impossible; kill the riskiest assumption first; constraints choose the stack; audit against the code; money is never a float; every incident leaves a lesson." src="./assets/principles-light.svg" width="100%"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="./assets/principles-dark.svg"><img alt="Principles: make invalid states impossible; kill the riskiest assumption first; constraints choose the stack; audit against the code; every cent adds up; every incident leaves a lesson; start from the real problem; fewer parts, fewer failures; secure by default; decide in writing." src="./assets/principles-light.svg" width="100%"></picture>
 
 <br>
 
