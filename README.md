@@ -2,11 +2,11 @@
 
 <div align="center">
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="./assets/hero-dark.svg"><img alt="Yeltsin López — Full-Stack Product Engineer. I design and ship SaaS end to end." src="./assets/hero-light.svg" width="100%"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="./assets/hero-dark.svg"><img alt="Yeltsin López — Senior Software Engineer & Architect. I build products end to end." src="./assets/hero-light.svg" width="100%"></picture>
 
 <br>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="./assets/principles-dark.svg"><img alt="Principles: let the database enforce it; kill the riskiest assumption first; constraints choose the stack; audit against the code; money is never a float; every incident leaves a lesson." src="./assets/principles-light.svg" width="100%"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="./assets/principles-dark.svg"><img alt="Principles: make invalid states impossible; kill the riskiest assumption first; constraints choose the stack; audit against the code; money is never a float; every incident leaves a lesson." src="./assets/principles-light.svg" width="100%"></picture>
 
 <br>
 
@@ -14,6 +14,8 @@
 
 <a href="https://github.com/Yelt-dev/dueo"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/dueo-dark.svg"><img alt="Dueo — self-hosted subscription tracker. Rust, Axum, SQLite, Svelte 5." src="./assets/dueo-light.svg" width="49%"></picture></a>
 <a href="https://github.com/Yelt-dev/lscrib"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/lscrib-dark.svg"><img alt="lscrib — local-first transcription with Whisper. Python, FastAPI, React." src="./assets/lscrib-light.svg" width="49%"></picture></a>
+
+<a href="https://github.com/Yelt-dev/MarkEditPlus"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/markedit-dark.svg"><img alt="MarkEdit Plus — fork of a native macOS Markdown editor, extended with live preview, HTML/PDF export and templates. Swift." src="./assets/markedit-light.svg" width="100%"></picture></a>
 
 <br><br>
 

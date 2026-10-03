@@ -1,14 +1,2 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="880" height="76" viewBox="0 0 880 76" role="img">
-<style>
-.s{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Helvetica,Arial,sans-serif} .m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace}
-
-@media (prefers-reduced-motion: reduce){ .anim{animation:none!important} .pk{display:none} }
-</style>
-<defs>
-<pattern id="g1" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#E8EEF6" stroke-width="1"/></pattern>
-<pattern id="g2" width="100" height="100" patternUnits="userSpaceOnUse"><rect width="100" height="100" fill="url(#g1)"/><path d="M100 0H0V100" fill="none" stroke="#D6E0EE" stroke-width="1"/></pattern>
-</defs>
-<rect width="880" height="76" rx="14" fill="#F7F9FC"/>
-<rect x="1" y="1" width="878" height="74" rx="13" fill="url(#g2)" stroke="#C3D0E3"/>
-<text x="36" y="44" class="m" font-size="12" letter-spacing="2" fill="#0E8FA0">SHEET 06</text><text x="112" y="44" class="m" font-size="12" letter-spacing="2" fill="#8394AE">/</text><text x="128" y="44" class="m" font-size="12" letter-spacing="2" fill="#0B1220">CONTACT</text><text x="844" y="44" text-anchor="end" class="m" font-size="11" fill="#8394AE">open to senior &amp; architecture roles</text><line x1="36" y1="58" x2="844" y2="58" stroke="#C3D0E3" stroke-dasharray="2 4"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="44" viewBox="0 0 880 44" fill="none" role="img"><style>.s{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Helvetica,Arial,sans-serif} .m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace}
+@media (prefers-reduced-motion: reduce){ *{animation:none!important} }</style><defs></defs><text x="0" y="30" class="m" font-size="13" font-weight="700" text-anchor="start" fill="#059669" >06</text><text x="30" y="30" class="s" font-size="22" font-weight="700" text-anchor="start" fill="#0C0A09" letter-spacing="-0.4">Let's talk</text><text x="880" y="30" class="s" font-size="13" font-weight="400" text-anchor="end" fill="#A8A29E" >replies within a day</text></svg>
