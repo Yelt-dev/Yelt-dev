@@ -393,4 +393,9 @@ if __name__ == "__main__":
             (OUT / f"{name}-{theme}.svg").write_text(fn(t, theme))
         for k in ("linkedin", "email"):
             (OUT / f"btn-{k}-{theme}.svg").write_text(button(k, t, theme))
-    print("ok:", len(list(OUT.glob("*.svg"))), "svg")
+    # cambia la versión de las imágenes en el README para que GitHub y el navegador no sirvan la vieja
+    import time
+    readme = ROOT / "README.md"
+    v = time.strftime("%Y%m%d%H%M")
+    readme.write_text(re.sub(r"(\./assets/[a-z-]+\.svg)(\?v=\d+)?", rf"\1?v={v}", readme.read_text()))
+    print("ok:", len(list(OUT.glob("*.svg"))), "svg · README v=" + v)
