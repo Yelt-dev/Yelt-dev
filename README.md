@@ -19,7 +19,7 @@
 
 <br><br>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="./assets/work-dark.svg"><img alt="Selected work: booking SaaS, hospital EHR, retail POS, restaurant ordering, real-estate leads, PC lab control, logistics ops, retail ERP." src="./assets/work-light.svg" width="100%"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="./assets/work-dark.svg"><img alt="Selected work: booking SaaS, hospital EHR, medical media platform, pet-care marketplace, retail POS, restaurant ordering, real-estate leads, PC lab control, logistics ops, retail ERP." src="./assets/work-light.svg" width="100%"></picture>
 
 <br>
 

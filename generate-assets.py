@@ -281,6 +281,8 @@ def markedit(t, theme):
 WORK = [
     ("Booking SaaS", "Beauty & wellness", "violet", ["Serializable transactions against", "double-booking; advisory locks."], ["NextJS", "PostgreSQL", "Vercel"]),
     ("Hospital EHR", "Healthcare", "pink", ["RLS with FORCE, append-only audit", "log, clinical-record compliance."], ["NestJS", "Angular", "PostgreSQL"]),
+    ("Medical media platform", "Pharma & doctors", "sky", ["Doctor directory, medical talks, ads", "engine, AI assistant, S3 library."], ["NestJS", "Angular", "NextJS"]),
+    ("Pet-care marketplace", "Two-sided", "green", ["Verified hosts, bookings, payouts;", "API + two mobile apps, one monorepo."], ["NestJS", "expo", "PostgreSQL"]),
     ("Retail POS", "Commerce", "orange", ["Inventory ledger, immutable sales,", "67 ADRs, rules pinned by tests."], ["Laravel", "Angular", "MySQL"]),
     ("Restaurant ordering", "Food & delivery", "amber", ["Order state machine in Postgres,", "idempotency keys, encrypted data."], ["NextJS", "Supabase", "PostgreSQL"]),
     ("Real-estate leads", "Marketplace", "sky", ["Versioned, explainable lead", "scoring; wallet in integer cents."], ["GoLang", "NextJS", "PostgreSQL"]),
@@ -292,7 +294,7 @@ WORK = [
 
 def work(t, theme):
     cw, ch, g = 432, 150, 16
-    h = 56 + 4 * (ch + g) - g + 40
+    h = 56 + ((len(WORK) + 1) // 2) * (ch + g) - g + 40
     b = section_title(4, "Selected work", "client & partner systems · names withheld", t, "orange")
     for i, (name, dom, col, body, icons) in enumerate(WORK):
         x, y = (i % 2) * (cw + g), 56 + (i // 2) * (ch + g)
