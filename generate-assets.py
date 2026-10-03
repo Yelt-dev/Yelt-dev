@@ -35,6 +35,13 @@ BASE_CSS = f""".s{{font-family:{SANS}}} .m{{font-family:{MONO}}}
 @media (prefers-reduced-motion: reduce){{ *{{animation:none!important}} }}"""
 
 
+def paired(side, w, h, body, css="", defs=""):
+    """Tarjeta para ir en pareja al 50%: deja 8px de medianil hacia el centro."""
+    if side == "right":
+        body = f'<g transform="translate(8 0)">{body}</g>'
+    return doc(w + 8, h, body, css, defs)
+
+
 def doc(w, h, body, css="", defs=""):
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" fill="none" role="img">'
             f'<style>{BASE_CSS}{css}</style><defs>{defs}</defs>{body}</svg>')
@@ -246,7 +253,7 @@ def dueo(t, theme):
     for j, ic in enumerate(["Rust", "Svelte", "SQLite", "Docker"]):
         b += icon(ic, 26 + j * 34, h - 50, 26, theme)
     b += text(w - 26, h - 31, "github.com/Yelt-dev/dueo ↗", 12, t["muted"], anchor="end", cls="m")
-    return doc(w, h, b, css, defs)
+    return paired("left", w, h, b, css, defs)
 
 
 def lscrib(t, theme):
@@ -271,7 +278,7 @@ def lscrib(t, theme):
     for j, ic in enumerate(["Python", "FastAPI", "React", "Docker"]):
         b += icon(ic, 26 + j * 34, h - 50, 26, theme)
     b += text(w - 26, h - 31, "github.com/Yelt-dev/lscrib ↗", 12, t["muted"], anchor="end", cls="m")
-    return doc(w, h, b, css, defs)
+    return paired("right", w, h, b, css, defs)
 
 
 def markedit(t, theme):
@@ -366,7 +373,7 @@ def contact_title(t, theme):
 
 
 def button(kind, t, theme):
-    w, h = 300, 64
+    w, h = 432, 64
     col, lab, val = {"linkedin": ("sky", "LinkedIn", "in/yeltsinlopezv"),
                      "email": ("pink", "Email", "yeltsin.lopez94@gmail.com")}[kind]
     defs = (f'<linearGradient id="bg" x1="0" x2="1"><stop offset="0" stop-color="{t[col]}" stop-opacity=".10"/>'
@@ -380,7 +387,7 @@ def button(kind, t, theme):
     b += text(64, 28, lab, 12, t["faint"], weight=600)
     b += text(64, 47, val, 14, t["ink"], weight=600)
     b += text(w - 18, 39, "↗", 16, t["muted"], anchor="end")
-    return doc(w, h, b, defs=defs)
+    return paired("left" if kind == "linkedin" else "right", w, h, b, defs=defs)
 
 
 if __name__ == "__main__":
